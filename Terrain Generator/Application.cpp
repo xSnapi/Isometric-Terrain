@@ -11,6 +11,8 @@ Application::Application()
 	InitCursor();
 
 	m_map = new Map(m_renderer);
+
+	m_renderer.ClearColor = sf::Color(77, 149, 191);
 }
 
 Application::~Application() {
@@ -139,7 +141,11 @@ void Application::InitWindow() {
 
 	sf::ContextSettings settings;
 
+	sf::Image icon;
+	icon.loadFromFile("res/block.png");
+
 	m_window.create(mode, "Isometric Terrain Generator", sf::Style::Close, settings);
+	m_window.setIcon(100, 100, icon.getPixelsPtr());
 	SetFrameLimit(144);
 
 }

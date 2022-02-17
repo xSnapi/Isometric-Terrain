@@ -27,7 +27,7 @@ void Map::Update() {
 	if (hv::Input::Keyboard::KeyCheck(sf::Keyboard::V))
 		update = !update;
 
-	if (hv::Input::Keyboard::KeyCheck(sf::Keyboard::Up))
+	if (hv::Input::Keyboard::KeyCheck(sf::Keyboard::Up, true))
 		renderDist++;
 	else if (hv::Input::Keyboard::KeyCheck(sf::Keyboard::Down))
 		renderDist--;
@@ -45,7 +45,8 @@ void Map::Update() {
 				sf::Vector2f coords = CartesianToIsometric((float)x, (float)y, (float)Chunk::Info::Size * (float)Block::Info::Size);
 
 				m_Chunks[sf::Vector2i(x, y)].Create(coords + m_chunkOrigin);
-				m_Chunks[sf::Vector2i(x, y)].Update();
+				if(update)
+					m_Chunks[sf::Vector2i(x, y)].Update();
 			}
 
 			m_ChunksToRender.push_back(&m_Chunks[sf::Vector2i(x, y)]);
@@ -55,7 +56,7 @@ void Map::Update() {
 	if (!update)
 		return;
 
-	static float tick = 0.1f;
+	static float tick = 0.15f;
 	static float elapsedTime = 0.0f;
 
 	elapsedTime += hv::dt;

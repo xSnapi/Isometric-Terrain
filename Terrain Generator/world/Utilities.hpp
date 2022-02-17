@@ -13,7 +13,7 @@ static sf::Vector2f CartesianToIsometric(float x, float y, float size) {
 static sf::Vector2f IsometricToCartesian(float x, float y, float size) {
 	return sf::Vector2f
 	(
-		 x / size + (2.0f * y) / size,
-		-x / size + (2.0f * y) / size
+		( x + (2.0f * y)) / size,
+		(-x + (2.0f * y)) / size
 	);
 }
