@@ -1,7 +1,7 @@
 # SFML Isometric Terrain Generator
 
 ## Preview
-![Terrain](https://github.com/xSnapi/Isometric-Terrain/master/images/im.png?raw=true)
+![Terrain](https://github.com/xSnapi/Isometric-Terrain/blob/master/images/im.png?raw=true)
 
 # How to build?
 
